@@ -1,20 +1,71 @@
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+<img width="1200" height="475" alt="Expecta banner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
 </div>
 
-# Run and deploy your AI Studio app
+# Expecta
 
-This contains everything you need to run your app locally.
+**AI-powered pregnancy and nursing safety scanner** that cross-references product ingredients against clinical safety databases instantly — helping expecting and nursing parents make informed decisions about skincare, cosmetics, and personal care products.
 
-View your app in AI Studio: https://ai.studio/apps/7ab1f6b4-ca2c-42e1-9dc6-8f8b5b56d7a5
+🌐 **Live app:** [https://expecta.onrender.com](https://expecta.onrender.com)
+
+> Note: hosted on a free tier instance — the app may take up to ~50 seconds to wake up if it hasn't been visited recently.
+
+## Features
+
+- 🔍 Scan or enter a product's ingredient list for instant analysis
+- 🛡️ Get a clear **SAFE / CAUTION / AVOID** verdict for both pregnancy and breastfeeding
+- 🧪 Ingredient-by-ingredient breakdown with safer alternatives suggested
+- 📊 Overall safety score and plain-language reasoning summary
+- 📷 Camera-based scanning support
+
+## Tech Stack
+
+- **Frontend:** React 19, Vite, TypeScript, Tailwind CSS, Framer Motion, Lucide icons
+- **Backend:** Express (Node.js), TypeScript
+- **AI:** Google Gemini API (`@google/genai`)
+- **Deployment:** [Render](https://render.com) (free tier, config in `render.yaml`)
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
-
+**Prerequisites:** Node.js
 
 1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+   ```
+   npm install
+   ```
+2. Copy `.env.example` to `.env` and set your `GEMINI_API_KEY`:
+   ```
+   cp .env.example .env
+   ```
+3. Run the app in development mode:
+   ```
+   npm run dev
+   ```
+4. Open [http://localhost:3000](http://localhost:3000)
+
+## Build & Run in Production
+
+```
+npm run build
+npm start
+```
+
+## Deployment
+
+This project deploys to [Render](https://render.com) using the included `render.yaml` Blueprint:
+
+1. Push your changes to the `main` branch on GitHub
+2. In the Render dashboard, trigger a **Manual Sync** on the Blueprint (or it deploys automatically on push, depending on your settings)
+3. Set the `GEMINI_API_KEY` environment variable in the Render dashboard under your service's **Environment** tab
+
+A Railway configuration (`railway.json`) is also included as an alternative deployment option.
+
+## Environment Variables
+
+| Variable | Description |
+|---|---|
+| `GEMINI_API_KEY` | Your Google Gemini API key — get one at [aistudio.google.com/apikey](https://aistudio.google.com/apikey) |
+
+## License
+
+This project is private and not licensed for public redistribution.
