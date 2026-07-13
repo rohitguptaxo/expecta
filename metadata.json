@@ -1,0 +1,6 @@
+{
+  "name": "Expecta",
+  "description": "AI-powered pregnancy and nursing safety scanner that cross-references ingredients against clinical databases instantly.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
